@@ -1,0 +1,114 @@
+.dasboard_title__content {
+    text-align: center;
+}
+
+.dasboard_title__content {
+    color: #002F82;
+}
+
+.dasboard_title__content h2 {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 32px;
+}
+
+.dasboard_title__content h4 {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 109.5%;
+    margin-bottom: 0;
+}
+
+.apexcharts-canvas {
+    width: 100% !important;
+}
+
+.apexcharts-legend {
+    display: none !important;
+}
+
+.my-row {
+    display: table;
+    width: 100%;
+    text-align: center;
+}
+
+.my-row>li {
+    display: table-cell;
+}
+
+.btn_style_send {
+    margin-right: 15px;
+    width: 128px;
+    height: 40px;
+    border: 1px solid #002F82;
+    color: #002F82;
+    background-color: white;
+}
+
+.add_btn_style {
+    width: 154px;
+    height: 40px;
+    border: 1px solid #002F82;
+    color: #002F82;
+    background-color: white;
+}
+
+.inCeter {
+    text-align: center;
+}
+
+.justify_values h4 {
+    display: flex;
+    justify-content: center;
+    margin-top: 27px;
+}
+
+.justify_values h4 span {
+    margin-top: 3px;
+    margin-left: 6px;
+}
+
+.dashboard_footer_content {
+    width: 100%;
+}
+
+.dashboard_footer_content h2 {
+    float: right;
+}
+
+.dashboard_footer_content_cover h3 {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 20px;
+    color: white;
+}
+
+.margin {
+    font-weight: bold;
+}
+
+.footer_line {
+    text-align: center;
+}
+
+.dashboard_footer_content_cover {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background-color: #0E47DD;
+    display: flex;
+    padding: 20px;
+    /* justify-content: center; */
+    /* width: 100%; */
+}
+
+.apexcharts-yaxis,
+.apexcharts-xaxis {
+    display: none;
+}

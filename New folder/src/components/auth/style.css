@@ -1,0 +1,119 @@
+@font-face {
+    font-family: Montserrat-bold;
+    src: url(../../assets/fonts/Montserrat/Montserrat-Bold.ttf) format('TrueType');
+}
+
+.form {
+    background-color: #ffffff;
+}
+
+.form__wrapper .form {
+    padding: 75px;
+    border-bottom-left-radius: 21px;
+    border-top-left-radius: 21px;
+}
+
+.form .form__group .MuiFormControlLabel-label {
+    font-size: 14px;
+    color: #b1b1b1;
+}
+
+.form .form__group .MuiCheckbox-colorSecondary.Mui-checked {
+    color: #b1b1b1;
+}
+
+.title {
+    width: 100%;
+    display: block;
+}
+
+.title .title__content {
+    width: 100%;
+}
+
+.submission_block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.submission_block .submission__button {
+    background-color: #d37bf5;
+    color: #ffff;
+    padding: 6px 50px;
+    border-radius: 20px;
+}
+
+.social_icon .social__button {
+    background-color: #d37bf5;
+    color: #ffff;
+    padding: 6px 10px;
+    border-radius: 10px;
+}
+
+.submission_block .content__prompt {
+    font-weight: bold;
+    color: #8261bd;
+}
+
+.submission_block .sign__in__parass {
+    font-size: 12px;
+}
+
+.title .title__content h2 {
+    color: #8261bd;
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    font-family: Montserrat-bold;
+}
+
+.title .title__content h4 {
+    color: #8261bd;
+    /* font-size: 1.3rem; */
+    /* text-transform: uppercase; */
+    font-family: Montserrat-bold;
+}
+
+.form__group {
+    padding-top: 18px;
+}
+
+.input__field_block .field {
+    display: flex;
+    flex-direction: column;
+}
+
+.MuiFormControl-root {
+    width: 100% !important;
+}
+
+.input__field_block .MuiOutlinedInput-input {
+    padding: 12.5px 14px;
+    border-radius: 4px;
+    border: 1px solid #9d8fb4;
+}
+
+.input__field_block_signup .MuiOutlinedInput-input {
+    padding: 6.5px 14px;
+    border-radius: 4px;
+    border: 1px solid #9d8fb4;
+}
+
+.footer_content {
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.question_btn {
+    color: #002F82;
+    background: #F2F2F2 !important;
+    font-family: Montserrat;
+    border-radius: 20px !important;
+    border-top-left-radius: 0 !important;
+    width: 209px !important;
+    font-weight: 700;
+    outline: none;
+    border: none;
+    height: 56px !important;
+}
