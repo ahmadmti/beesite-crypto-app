@@ -6,3 +6,7 @@
     width: 327px !important;
     height: 64px !important;
 }
+
+.login__content {
+    padding-top: 20px;
+}

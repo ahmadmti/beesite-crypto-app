@@ -1,7 +1,17 @@
 import React from 'react'
 import './style.css';
 import { Button } from '@material-ui/core';
+import AgreeDialog from "./AgreeDialog";
+import BottomBar from "../Welcome/BottomBar";
 export default function EmailFormFooter(props) {
+    const [agreeState, setAgreeState] = React.useState(false);
+    const [open, setOpen] = React.useState(false);
+    const openModal=() => {
+        // console.log("ok");
+        setOpen(true);
+        setAgreeState(true)
+
+    };
     return (
         <React.Fragment>
             {/* width: '100%'" */}
@@ -22,7 +32,7 @@ export default function EmailFormFooter(props) {
                                 <span className='margin'>Read</span>
                             </Button>
                             <Button variant="contained" color="info" class="btn_style agree_btn"
-                            // onClick={() => EmailForm()}
+                            onClick={() => openModal()}
                             >
                                 <div>
                                     <svg width="18" height="14" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -33,15 +43,25 @@ export default function EmailFormFooter(props) {
                             </Button>
                         </div>
                         <div className="confirm_btn_cover">
-
+                        {
+                            agreeState ?
                             <Button variant="contained" color="primary" onClick={()=>props.furtherInfo()} class="btn_style confirm_btn">
-                               
-                              Confirm
-                            </Button>
+                            Confirm
+                          </Button>
+                          :
+                          <Button  variant="contained" color="primary" disbled class="btn_style confirm_btn_disable">
+                          Confirm
+                        </Button>
+                        }
+                           
 
+
+
+                            <BottomBar/>
 
                         </div>
 
+                    <AgreeDialog open={open} close={()=> setOpen(false)}/>
                     </div>
                 </div>
             </div>

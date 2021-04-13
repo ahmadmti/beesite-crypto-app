@@ -139,6 +139,7 @@
 
 .email_footer_content_inside {
     padding: 20px;
+    padding-bottom: 0;
     text-align: center;
 }
 
@@ -197,10 +198,23 @@
     background: #F2F2F2 !important;
 }
 
+.confirm_btn_disable {
+    /* border: none; */
+    border: 1px solid #002F82;
+    color: #fff;
+    width: 327px;
+    height: 64px;
+    background: #F2F2F2 !important;
+}
+
 .margin {
     margin-left: 11px;
 }
 
 .padding {
     padding-top: 60px;
+}
+
+.MuiInput-root {
+    width: 100%;
 }

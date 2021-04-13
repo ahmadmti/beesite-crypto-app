@@ -1,6 +1,6 @@
 import React from 'react'
 import FormTitle from './FormTitle';
-import { Box, Button, TextField, Container, Checkbox, FormControlLabel } from '@material-ui/core';
+import { Box, Button, TextField, Container ,Checkbox, FormControlLabel } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
 import './style.css'
 import Label from './label';
@@ -16,11 +16,13 @@ import EmailFormFooter from "./EmailFormFooter";
 import FurtherInformation from "./FurtherInformation";
 import firebase from "../../Firebase/initializeFirebase";
 import { NavLink } from "react-router-dom";
-
+import BottomBar from "../Welcome/BottomBar";
 export default function RegisterForm() {
 
     const [emailFormView, setState] = React.useState(false);
+ 
 
+    
     const EmailForm = () => {
         setState(true)
     }
@@ -31,30 +33,59 @@ export default function RegisterForm() {
         password: '',
         last_name: '',
         first_name: '',
-        Adresse:'',
-        date_of_birth:'',
+        Adresse: '',
+        date_of_birth: '',
         showPassword: false,
     });
     const [confirm, setConfirmAgree] = React.useState(false);
+    const [imageAsUrl, setImageAsUrl] = React.useState()
+    const [imageAsFile, setImageAsFile] = React.useState(null);
+    const handleImage = (event) => {
+        const image = event.target.files[0]
+        console.log(image)
+        setImageAsFile(imageFile => (image))
 
-
+    }
     const agree = (value) => {
+
         firebase.auth().createUserWithEmailAndPassword(value.email, value.password)
             .then((userCredential) => {
-                // console.log('2 form data:', userForm.value);
                 const ref = firebase.firestore().collection('users');
-
-
                 var user = firebase.auth().currentUser;
+                const storage = firebase.storage();
 
-                const res = ref.doc(user.uid).set({
-                    last_name: value.last_name,
-                    first_name: value.first_name,
-                    email: user.email,
+                if (imageAsFile === null) {
+                    // console.error(`not an image, the image file is a ${typeof (imageAsFile)}`)
+                    const res = ref.doc(user.uid).set({
+                        last_name: value.last_name,
+                        first_name: value.first_name,
+                        adresse: value.Adresse,
+                        date_of_birth: value.date_of_birth,
+                        email: user.email,
+                    });
+                }
+                else {
+                    const uploadTask = storage.ref(`/images/${imageAsFile.name}`).put(imageAsFile)
+                    //initiates the firebase side uploading 
+                    uploadTask.on('state_changed',
+                        (snapShot) => {
+                        }, (err) => {
+                            //catches the errors
+                            console.log(err)
+                        }, async () => {
+                            const img = await storage.ref('images').child(imageAsFile.name).getDownloadURL();
+                            const res = ref.doc(user.uid).set({
+                                last_name: value.last_name,
+                                first_name: value.first_name,
+                                adresse: value.Adresse,
+                                date_of_birth: value.date_of_birth,
+                                email: user.email,
+                                profile_image: img,
+                            });
+                        })
+                }
 
-                });
-
-                console.log('Added document with ID: ', res);
+                // console.log('Added document with ID: ', res);
                 // console.log(user.email);
                 // console.log(user.uid);
 
@@ -92,7 +123,10 @@ export default function RegisterForm() {
     const handleMouseDownPassword = (event) => {
         event.preventDefault();
     };
-    console.log(values);
+
+    // console.log(values);
+    console.log(imageAsUrl)
+
     return (
         <div className="form__wrapper">
             <Container fixed maxWidth="md" >
@@ -151,13 +185,16 @@ export default function RegisterForm() {
                                                         }
                                                     />
                                                 </FormControl>
-
+                                         
                                             </div>
                                         </Grid>
-                                     
+
                                         <Grid item md={12} sm={12} xs={12}>
-                                            <EmailFormFooter furtherInfo={() => agree(values)} />
+                                            <EmailFormFooter  furtherInfo={() => agree(values)} />
                                         </Grid>
+                                       
+                                             
+                                           
                                         {/* <Grid item md={12} sm={12} xs={12}>
                                             <div className="submission_block">
                                                 <Button variant="contained" color="info" class="question_btn"
@@ -199,6 +236,7 @@ export default function RegisterForm() {
                                                         >
                                                             Next Question
                                                             </Button>
+                                                            <BottomBar/>
                                                     </NavLink>
 
                                                 </div>
@@ -242,26 +280,42 @@ export default function RegisterForm() {
                                                         </div>
                                                     </Grid>
                                                     <Grid item md={12} sm={12} xs={12} >
-                                            <div className="input__field_block_signup">
-                                                <Label name="Adress" />
-                                                <TextField size="medium"
-                                                    value={values.address}
-                                                    name="Adresse"
-                                                    onChange={handleChange('Adresse')}
-                                                    className="field" />
-                                            </div>
-                                        </Grid>
-                                        <Grid item md={12} sm={12} xs={12} >
-                                            <div className="input__field_block_signup">
-                                                <Label name="Date of Birth" />
-                                                <TextField size="medium"
-                                                    value={values.date_of_birth}
-                                                    name="date_of_birth"
-                                                    type="date"
-                                                    onChange={handleChange('date_of_birth')}
-                                                    className="field" />
-                                            </div>
-                                        </Grid>
+                                                        <div className="input__field_block_signup">
+                                                            <Label name="Adresse" />
+                                                            <TextField size="medium"
+                                                                value={values.address}
+                                                                name="Adresse"
+                                                                onChange={handleChange('Adresse')}
+                                                                className="field" />
+                                                        </div>
+                                                    </Grid>
+                                                    <Grid item md={12} sm={12} xs={12} >
+                                                        <div className="input__field_block_signup">
+                                                            <Label name="Date of Birth" />
+                                                            <TextField size="medium"
+                                                                value={values.date_of_birth}
+                                                                name="date_of_birth"
+                                                                type="date"
+                                                                onChange={handleChange('date_of_birth')}
+                                                                className="field" />
+                                                        </div>
+                                                    </Grid>
+
+                                                    <Grid item md={12} sm={12} xs={12} >
+                                                        <div className="input__field_block_signup">
+                                                        <Label name="Upload Image" />
+                                                            <Input 
+                                                            
+                                                                inputProps={{ accept: 'image/*' }}
+                                                                onChange={handleImage}
+                                                                id="raised-button-file"
+                                                                type="file"
+                                                            />
+
+                                                        </div>
+                                                    </Grid>
+
+
                                                     <div>
                                                         <FormFooter />
                                                     </div>
@@ -270,7 +324,8 @@ export default function RegisterForm() {
                                                             <Button variant="contained" color="info" class="question_btn"
                                                                 onClick={() => EmailForm()}>
                                                                 Next Question
-                                    </Button>
+                                                            </Button>
+                                                            <BottomBar/>
                                                         </div>
                                                     </Grid>
                                                 </Grid>
