@@ -106,6 +106,7 @@
 }
 
 .question_btn {
+    cursor: pointer;
     color: #002F82;
     background: #F2F2F2 !important;
     font-family: Montserrat;
@@ -188,6 +189,7 @@
     border-top-left-radius: 0 !important;
     font-weight: 700;
     outline: none;
+    cursor: pointer;
 }
 
 .read_btn {
@@ -200,6 +202,7 @@
 
 .confirm_btn_disable {
     /* border: none; */
+    cursor: pointer;
     border: 1px solid #002F82;
     color: #fff;
     width: 327px;
@@ -217,4 +220,17 @@
 
 .MuiInput-root {
     width: 100%;
+}
+
+.MuiMobileStepper-progress {
+    width: 100% !important;
+}
+
+.MuiLinearProgress-barColorPrimary {
+    background: linear-gradient(180deg, #FFA877 0%, #DF704B 100%) !important;
+}
+
+.btn_id {
+    border: 1px solid #002F82 !important;
+    color: #002F82 !important;
 }
