@@ -17,14 +17,18 @@ export default function PDF(props) {
         h3: {
             color: "black",
         }
-    }));
+    }));const options = {
+        orientation: 'landscape',
+        unit: 'in',
+        format: [4,2]
+    };
     const classes = useStyles();
     return (
 
 
         <div className="App">
 
-            <Pdf targetRef={ref} filename="code-example.pdf">
+            <Pdf targetRef={ref} filename="code-example.pdf"options={options} x={.5} y={.5} scale={0.8}>
                 {({ toPdf }) => <button onClick={toPdf}>Generate Pdf</button>}
             </Pdf>
             <div ref={ref}>

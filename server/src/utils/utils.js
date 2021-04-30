@@ -1,23 +1,17 @@
 var nodemailer = require('nodemailer');
 
 var transporter = nodemailer.createTransport({
-    host: `pizzareborn.geeklone.com`,
+    host: `smtp.dreamhost.com`,
     port: `465`,
-    secure: `ssl`,
+    secure: true,
     auth: {
-        user: `pizzareborn`,
-        pass: `j-3pLGT4`
+        user: `agent@beesite.geeklone.com`,
+        pass: `beesite+-**1`
     }
 });
 
-// var mailOptions = {
-//     from: 'hi@gmail.com',
-//     to: 'ru03244523131@gmail.com',
-//     subject: 'Sending Email using Node.js',
-//     text: 'That was easy!'
-// };
 
-exports.sendMail = function(mailOptions) {
+exports.mail = function(mailOptions) {
 
     transporter.sendMail(mailOptions, function(error, info) {
         if (error) {

@@ -205,7 +205,7 @@ export default function RegisterForm() {
                                     <div>
 
                                         <div style={{ display: "flex", justifyContent: "center" }}>
-                                            <FurtherInformation />
+                                            <FurtherInformation first_name={values.first_name}  last_name={values.last_name} />
                                         </div>
 
                                     </div>
@@ -260,7 +260,7 @@ export default function RegisterForm() {
 
 
                                                     <div>
-                                                        <FormFooter />
+                                                        {/* <FormFooter /> */}
                                                     </div>
                                                     <Grid item md={12} sm={12} xs={12}>
                                                         <div className="submission_block">
