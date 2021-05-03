@@ -1,6 +1,5 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-
 import MobileStepper from "@material-ui/core/MobileStepper";
 import { useHistory } from "react-router-dom";
 import BottomBar from "../Welcome/BottomBar";
@@ -12,15 +11,9 @@ import FormControl from '@material-ui/core/FormControl';
 import fileDownload from 'js-file-download';
 import { Button, TextField, Checkbox, FormControlLabel } from '@material-ui/core';
 import firebase from "../../Firebase/initializeFirebase";
-import PDF from "./DocumentPdf";
-import Contract from "./Contract"
 
-import { sendMail } from '../../utils/utils.js';
 const useStyles = makeStyles(theme => ({
-    cover: {
 
-
-    },
     root: {
 
         width: "100%",
@@ -42,7 +35,7 @@ export default function FurtherInformation(props) {
                 last_name:props.last_name,address:values.Adresse})
         };
         // Where we're fetching data from
-        fetch(`http://localhost:2000/api/send-mail`, requestOptions)
+        fetch(`http://beesite.geeklone.com:2000/api/send-mail`, requestOptions)
             // We get the API response and receive data in JSON format...
             .then(res => {
                 console.log(res)
@@ -63,7 +56,9 @@ export default function FurtherInformation(props) {
     const [ans8, setAns8] = React.useState('');
     const [ans10, setAns10] = React.useState('');
     const [ans11, setAns11] = React.useState('');
+    const [requestSubmit, setRequestSubmit] = React.useState(false);
 
+    
     const handelAns2 = (event) => {
         setAns2(event.target.value);
     };
@@ -232,7 +227,7 @@ export default function FurtherInformation(props) {
         Adresse: '',
     });
     const submit = (value) => {
-
+        setRequestSubmit(true)
         const ref = firebase.firestore().collection('questions');
         var user = firebase.auth().currentUser;
         console.log(user)
@@ -270,6 +265,7 @@ export default function FurtherInformation(props) {
 
 
                     });
+                    setRequestSubmit(false)
                     history.push("/besside/dashboard");
                 })
         }
@@ -304,6 +300,7 @@ export default function FurtherInformation(props) {
 
 
                     });
+                    setRequestSubmit(false)
                     history.push("/besside/dashboard");
                 })
         }
@@ -341,6 +338,7 @@ export default function FurtherInformation(props) {
 
 
                     });
+                    setRequestSubmit(false)
                     history.push("/besside/dashboard");
                 })
         }
@@ -349,7 +347,6 @@ export default function FurtherInformation(props) {
                 address: value.Adresse,
                 dob: value.date_of_birth,
                 agree: certify,
-
             },
             Qs2: ans2,
             Qs3: ans3,
@@ -363,9 +360,9 @@ export default function FurtherInformation(props) {
 
 
         });
-
+      
         fetchMail(user.email)
-        // history.push("/besside/dashboard");
+        history.push("/besside/dashboard");
 
     }
     const download = () => {
@@ -823,12 +820,15 @@ export default function FurtherInformation(props) {
                                                 </Grid>
 
                                             </form>
-
+                                            <div className="padding">
+                                    <Grid item md={12} sm={12} xs={12}>
                                             <Button variant="contained" onClick={handleSubmit} color="info" class="question_btn">
                                                 Next Question
                                         </Button>
                                             <BottomBar />
-
+                                          
+                                        </Grid>
+                                      </div>
                                         </div>
                                     </Grid>
                                 </div>
@@ -915,9 +915,9 @@ export default function FurtherInformation(props) {
                                     <Grid item md={12} sm={12} xs={12}>
                                         <div className="submission_block">
                                             {/* <form onSubmit={submit(values)}> */}
-                                            <Button variant="contained" onClick={() => submit(values)} color="info" class="question_btn">
+                                                <Button disbled={requestSubmit} variant="contained" onClick={() => submit(values)} color="info" class="question_btn">
                                                 Submit
-                                    </Button>
+                                                </Button>
                                             <BottomBar />
                                             {/* </form> */}
                                         </div>

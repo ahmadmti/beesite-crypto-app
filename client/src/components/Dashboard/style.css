@@ -98,6 +98,17 @@
     text-align: center;
 }
 
+.dasboard_title__content_padding {
+    text-align: center;
+}
+
+.dashboard_footer_content_cover_padding {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background-color: #0E47DD;
+    display: flex;
+}
+
 .dashboard_footer_content_cover {
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
@@ -112,3 +123,28 @@
 .apexcharts-xaxis {
     display: none;
 }
+
+.btn_style_Add {
+    margin-right: 15px;
+    width: 128px;
+    height: 40px;
+    border: 1px solid #ffffff;
+    color: #ffffff;
+    background-color: #0e47dd;
+}
+
+.btn_cover {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.MuiSelect-icon {
+    color: #ffffff !important;
+}
+
+
+/* .MuiDrawer-paper {
+    marg
+    width: 60% !important;
+} */

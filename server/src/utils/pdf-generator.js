@@ -15,7 +15,7 @@ async function createPDF(templateName, data = null) {
     var string = milis.toDateString().trim();
     milis = milis.getTime();
 
-    var fileName = `'contract'-${milis}.pdf`;
+    var fileName = `contract-${milis}.pdf`;
 
     var pdfPath = path.join('public/pdf', `${fileName}`);
 

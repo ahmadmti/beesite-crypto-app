@@ -72,16 +72,16 @@ export default function Dashboard(props) {
                                 <Title title="Bitcoin wallet" value="0,41" subValue="3600" />
                                 <Buttons btn1="Send to" btn2="Add bitcoin" />
                             </Grid>
+                            <Grid item md={12} sm={12} xs={12} >
+                                <LineChart />
 
+                            </Grid>
                             <Grid item md={12} sm={12} xs={12} >
                                 <FooterAbove title="Other  wallet" value="6 589" />
                                 <Buttons btn1="Send to" btn2="Add money" />
                             </Grid>
 
-                            <Grid item md={12} sm={12} xs={12} >
-                                <LineChart />
-
-                            </Grid>
+                         
                             <Grid item md={12} sm={12} xs={12} >
                                 <DashboardFooter />
 
