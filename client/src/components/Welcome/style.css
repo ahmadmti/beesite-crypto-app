@@ -1,0 +1,29 @@
+.MuiButton-containedPrimary {
+    background: #002F82 !important;
+    font-family: Montserrat;
+    border-radius: 20px !important;
+    border-top-left-radius: 0 !important;
+    width: 327px !important;
+    height: 64px !important;
+}
+
+.login__content {
+    padding-top: 20px;
+}
+
+.react-swipeable-view-container {
+    transition: 1s !important;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.custom-file-upload {
+    border-radius: 5px;
+    margin-top: 20px;
+    border: 1px solid rgb(207, 201, 201);
+    display: inline-block;
+    padding: 12px 12px;
+    cursor: pointer;
+}
