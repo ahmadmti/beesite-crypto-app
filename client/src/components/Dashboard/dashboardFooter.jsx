@@ -17,7 +17,7 @@ const useStyles = makeStyles({
         borderTopRightRadius: 10,
         backgroundColor: '#0E47DD',
         display: "flex",
-        padding: 20,
+        // padding: 20,
     },
     fullList: {
         width: 'auto',

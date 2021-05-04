@@ -2,7 +2,7 @@ import React from 'react'
 import { Box, Container, Grid, } from '@material-ui/core';
 import './style.css';
 import RegisterForm from '../../components/auth/RegisterForm';
-import img from '../../assets/images/Sign up left image.png';
+
 // import AuthWelcomeImgs from '../../components/auth/AuthWelcomeHeader';
 export default function register() {
     return (
