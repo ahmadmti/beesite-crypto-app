@@ -29,9 +29,9 @@ export default function CreateButton() {
                     <p style={{ marginLeft: 12 }}>Create an account</p>
                 </Button>
             </NavLink>
-            <div className="login__content">
+            {/* <div className="login__content">
                 <a href="#" style={{ fontWeight: 700, color: '#002F82', fontSize: 16 }}>Sign In</a>
-            </div>
+            </div> */}
             <div>
                 <BottomBar/>
             </div>

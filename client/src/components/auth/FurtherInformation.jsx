@@ -90,6 +90,14 @@ export default function FurtherInformation(props) {
 
     const handleSubmit = () => {
         setError('')
+        if (activeStep === 0) {
+            if (certify) {
+                handleNext()
+            }
+            else {
+                setError("please certify the accuracy of the information")
+            }
+        }
         if (activeStep === 1) {
             if (ans2) {
                 handleNext()
@@ -495,13 +503,15 @@ export default function FurtherInformation(props) {
                                                 }
                                                 label="I certify the accuracy of the information"
                                             />
+                                    <p style={{ fontWeight: 500, color: "red" }}>{error}</p>
+
                                         </Grid>
                                     </Grid>
                                     <div className="padding">
                                         <Grid item md={12} sm={12} xs={12}>
                                             <div className="submission_block">
 
-                                                <Button variant="contained" onClick={handleNext} color="info" class="question_btn">
+                                                <Button variant="contained" onClick={handleSubmit} color="info" class="question_btn">
                                                     Next Question
                                         </Button>
                                                 <BottomBar />
@@ -520,7 +530,7 @@ export default function FurtherInformation(props) {
 
                                 <h3 className={classes.h3}> <span>2 :</span> What is your approximate net situation in euros?</h3>
                                 <p>Equity is the amount of your assets (real estate, furniture and liquidity) minus the amount of your debts (mainly home loans and consumer loans). → What is your approximate net worth in euros?
-                                Equity is the amount of your assets (real estate, furniture and cash) minus the amount of your debts (mainly mortgage and consumer loans).
+                                
                         </p>
 
                                 <FormControl component="fieldset">

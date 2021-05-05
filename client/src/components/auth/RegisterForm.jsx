@@ -21,18 +21,34 @@ export default function RegisterForm() {
 
     const [emailFormView, setState] = React.useState(false);
     const [emailError, setEmailError] = React.useState(null);
+    const [firstNameError, setFirstNameError] = React.useState(null);
+    const [lastNameError, setLastNameError] = React.useState(null);
   
-
     const EmailForm = () => {
-        setState(true)
+          if(values.first_name){
+            setFirstNameError('')
+          }
+          else{
+            setFirstNameError('First name is required')    
+            }
+            if(values.last_name){
+                setLastNameError('')
+            }
+            else{
+                setLastNameError('Last name is required')    
+                }
+                if(values.first_name && values.last_name){
+                    setState(true)
+                }
     }
 
+ 
 
     const [values, setValues] = React.useState({
         email: '',
         password: '',
         last_name: '',
-        first_name: '',
+        first_name:'',
 
 
         showPassword: false,
@@ -234,6 +250,7 @@ export default function RegisterForm() {
                                                                 onChange={handleChange('first_name')}
                                                                 className="field" />
                                                         </div>
+                                                        <p style={{ fontWeight: 500, color: "red" }}>{firstNameError}</p>
                                                     </Grid>
                                                     <Grid item md={12} sm={12} xs={12}>
                                                         <div className="input__field_block_signup">
@@ -244,6 +261,8 @@ export default function RegisterForm() {
                                                                 onChange={handleChange('last_name')}
                                                                 className="field" />
                                                         </div>
+                                                        <p style={{ fontWeight: 500, color: "red" }}>{lastNameError}</p>
+
                                                     </Grid>
 
 
