@@ -20,7 +20,8 @@ const useStyles = makeStyles({
         // padding: 20,
     },
     fullList: {
-        width: 'auto',
+        display:"flex",
+        width: '100%',
     },
     btn:{
         float: 'right',
@@ -44,6 +45,9 @@ export default function DashboardFooter(props) {
     };
 
     const list = (anchor) => (
+        <Container fixed maxWidth="md" className="container" disableGutters>
+        <Grid container spacing={2}>
+        <Grid item lg={12} md={12} sm={12} xs={12} >
         <div
             className={clsx(classes.list, {
                 [classes.fullList]: anchor === 'top' || anchor === 'bottom',
@@ -53,9 +57,13 @@ export default function DashboardFooter(props) {
             onKeyDown={toggleDrawer(anchor, false)}
         >
                    <div >
+                       {/* <p>kjhgg</p> */}
                      <SlideContent/>        
                    </div>
         </div>
+        </Grid>
+        </Grid>
+        </Container>
     );
     return (
         <React.Fragment>

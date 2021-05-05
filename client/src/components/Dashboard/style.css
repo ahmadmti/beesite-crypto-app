@@ -149,3 +149,11 @@
     marg
     width: 60% !important;
 } */
+
+.MuiDrawer-paperAnchorBottom {
+    background-color: transparent !important;
+}
+
+.MuiBackdrop-root {
+    background-color: none !important;
+}
