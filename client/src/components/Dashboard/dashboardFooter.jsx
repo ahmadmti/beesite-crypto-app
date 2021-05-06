@@ -1,4 +1,4 @@
-import React,{useEffect} from 'react'
+import React, { useEffect } from 'react'
 import './style.css';
 import { Box, Container, } from '@material-ui/core';
 import TemporaryDrawer from "./slidePanel"
@@ -20,10 +20,10 @@ const useStyles = makeStyles({
         // padding: 20,
     },
     fullList: {
-        display:"flex",
+        display: "flex",
         width: '100%',
     },
-    btn:{
+    btn: {
         float: 'right',
     }
 });
@@ -35,7 +35,7 @@ export default function DashboardFooter(props) {
     });
     useEffect(() => {
         setState({ ...state, ['bottom']: true });
-      }, []);
+    }, []);
     const toggleDrawer = (anchor, open) => (event) => {
         if (event && event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
             return;
@@ -46,23 +46,23 @@ export default function DashboardFooter(props) {
 
     const list = (anchor) => (
         <Container fixed maxWidth="md" className="container" disableGutters>
-        <Grid container spacing={2}>
-        <Grid item lg={12} md={12} sm={12} xs={12} >
-        <div
-            className={clsx(classes.list, {
-                [classes.fullList]: anchor === 'top' || anchor === 'bottom',
-            })}
-            role="presentation"
-            onClick={toggleDrawer(anchor, false)}
-            onKeyDown={toggleDrawer(anchor, false)}
-        >
-                   <div >
-                       {/* <p>kjhgg</p> */}
-                     <SlideContent/>        
-                   </div>
-        </div>
-        </Grid>
-        </Grid>
+            <Grid container spacing={2}>
+                <Grid item lg={12} md={12} sm={12} xs={12} >
+                    <div
+                        className={clsx(classes.list, {
+                            [classes.fullList]: anchor === 'top' || anchor === 'bottom',
+                        })}
+                        role="presentation"
+                        onClick={toggleDrawer(anchor, false)}
+                        onKeyDown={toggleDrawer(anchor, false)}
+                    >
+                        <div >
+                            {/* <p>kjhgg</p> */}
+                            <SlideContent />
+                        </div>
+                    </div>
+                </Grid>
+            </Grid>
         </Container>
     );
     return (
@@ -87,8 +87,8 @@ export default function DashboardFooter(props) {
                                                 <path d="M11.41 19.41L16 14.83L20.59 19.41L22 18L16 12L10 18L11.41 19.41Z" fill="white" />
                                             </svg>
                                         </Button>
-                                       
-                                        <Drawer 
+
+                                        <Drawer
                                             anchor={anchor}
                                             open={state[anchor]}
                                             onClose={toggleDrawer(anchor, false)}
@@ -96,7 +96,7 @@ export default function DashboardFooter(props) {
                                         >
                                             {list(anchor)}
                                         </Drawer>
-                                      
+
                                     </React.Fragment>
                                 ))}
                             </div>
@@ -114,16 +114,7 @@ export default function DashboardFooter(props) {
                 </div>
             </div>
 
-            {/* <div className="Dashboard_title">
-                <div className="dasboard_title__content">
-                    <Grid container spacing={2}>
-                        <Grid item md={6} sm={6} xs={6} >
-                           {/* <LineGraph/> */}
-            {/* </Grid>
-                     
-                    </Grid>
-                </div>
-            </div> */}
+
         </React.Fragment>
     );
 }
