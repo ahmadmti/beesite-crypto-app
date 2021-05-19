@@ -51,7 +51,7 @@ export default function SlideContent() {
     const classes = useStyles();
 
     return (
-        <div>
+        <div style={{ height: "inherit" }}>
             <div className={classes.styleDiv}>
 
                 <img src={logo} alt={"logo"} />
@@ -115,7 +115,7 @@ export default function SlideContent() {
                                     <Select
                                         labelId="demo-simple-select-label"
                                         id="demo-simple-select"
-
+                                        // lable="TOP GAINERS"
                                     //   value={age}
                                     //   onChange={handleChange}
                                     >

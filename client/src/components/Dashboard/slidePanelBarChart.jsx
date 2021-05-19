@@ -10,7 +10,7 @@ export default class BarChart extends React.Component {
       
         series: [{
           name: 'Inflation',
-          data: [4.3, 5.1, 4.0, 7.1]
+          data: [4.3,  4.0,5.1,5.5, 7.1]
         }],
         options: {
           chart: {
@@ -29,8 +29,16 @@ export default class BarChart extends React.Component {
             }
           },
           
-          fill:{
-            colors:["#FFA876","#FFA876","#FFA876"]
+          fill: {
+            colors: [function({ value, seriesIndex, w }) {
+              if(value < 5.1) {
+                return 'white'  
+              } else if (value < 7.1) {
+                return '#F2F2F2'
+              } else {
+                  return '#FFA876'
+              }
+            }]
           },
           dataLabels: {
             enabled: true,
@@ -40,7 +48,15 @@ export default class BarChart extends React.Component {
             offsetY: -20,
             style: {
               fontSize: '12px',
-              colors: ["#FFA876"]
+              colors: [function({ value, seriesIndex, w }) {
+                if(value < 5.1) {
+                  return 'white'  
+                } else if (value < 7.1) {
+                  return '#F2F2F2'
+                } else {
+                    return '#FFA876'
+                }
+              }]
               
             },
            

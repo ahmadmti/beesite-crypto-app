@@ -443,7 +443,8 @@ export default function FurtherInformation(props) {
                     />
                     {
                         activeStep == 0 ?
-                            <div>
+                   
+                        <div className="option">
                                 <div>
                                     <h3 className={classes.h3}> <span>1 :</span> Validation of KYC (Know Your Customer)</h3>
                                 </div>
@@ -525,7 +526,7 @@ export default function FurtherInformation(props) {
                     }
                     {
                         activeStep == 1 ?
-
+                        <div className="option">
                             <div className={classes.h3}>
 
                                 <h3 className={classes.h3}> <span>2 :</span> What is your approximate net situation in euros?</h3>
@@ -558,9 +559,11 @@ export default function FurtherInformation(props) {
                                 </div>
 
                             </div>
+                            </div>
                             : null}
                     {
                         activeStep === 2 ?
+                        <div className="option">
                             <div className={classes.h3}>
                                 <h3 className={classes.h3}> <span>3 :</span> What is your annual net income (€)? </h3>
 
@@ -588,10 +591,12 @@ export default function FurtherInformation(props) {
                                     </Grid>
                                 </div>
                             </div>
+                            </div>
                             : null
                     }
                     {
                         activeStep === 3 ?
+                        <div className="option">
                             <div className={classes.h3}>
                                 <h3 className={classes.h3}> <span>4 :</span>What are your annual charges?</h3>
 
@@ -619,11 +624,13 @@ export default function FurtherInformation(props) {
                                     </Grid>
                                 </div>
                             </div>
+                            </div>
                             : null
                     }
                     {
                         activeStep === 4 ?
-                            <div className={classes.h3}>
+                        <div className="option">
+                               <div className={classes.h3}>
                                 <h3 className={classes.h3}> <span>5 :</span>What is your goal with Beeside? </h3>
 
                                 <FormControl component="fieldset">
@@ -651,10 +658,12 @@ export default function FurtherInformation(props) {
                                     </Grid>
                                 </div>
                             </div>
+                            </div>
                             : null
                     }
                     {
                         activeStep === 5 ?
+                        <div className="option">
                             <div className={classes.h3}>
                                 <h3 className={classes.h3}> <span>6:</span>Some questions to protect yourself from an uninformed investment 💡
                     One last little effort 🤓
@@ -673,10 +682,12 @@ export default function FurtherInformation(props) {
                                     </Grid>
                                 </div>
                             </div>
+                        </div>
                             : null
                     }
                     {
                         activeStep === 6 ?
+                        <div className="option">
                             <div className={classes.h3}>
                                 <h3 className={classes.h3}> <span>7:</span>What is your current professional situation?
                     </h3>
@@ -704,11 +715,13 @@ export default function FurtherInformation(props) {
                                     </Grid>
                                 </div>
                             </div>
+                        </div>   
                             : null
                     }
                     {
                         activeStep === 7 ?
-                            <div className={classes.h3}>
+                        <div className="option"> 
+                         <div className={classes.h3}>
                                 <h3 className={classes.h3}> <span>8:</span>What is your education level?
                     </h3>
                                 <FormControl component="fieldset">
@@ -734,10 +747,12 @@ export default function FurtherInformation(props) {
                                     </Grid>
                                 </div>
                             </div>
+                        </div>
                             : null
                     }
                     {
                         activeStep === 8 ?
+                        <div className="option"> 
                             <div className={classes.h3}>
                                 <h3 className={classes.h3}> <span>9:</span>How much do you intend to invest in total this year (€)?
                     </h3>
@@ -766,10 +781,12 @@ export default function FurtherInformation(props) {
                                     </Grid>
                                 </div>
                             </div>
+                        </div>    
                             : null
                     }
                     {
                         activeStep === 9 ?
+                        <div className="option"> 
                             <div className={classes.h3}>
                                 <h3 className={classes.h3}> <span>10:</span>It's good, you have finished the process, we will send you by email the
                             RIB on which to make your deposit once your account is validated.</h3>
@@ -843,10 +860,12 @@ export default function FurtherInformation(props) {
                                     </Grid>
                                 </div>
                             </div>
+                        </div>
                             : null
                     }
                     {
                         activeStep === 10 ?
+                        <div className="option"> 
                             <div className={classes.h3}>
                                 <h3 className={classes.h3}> <span>11:</span>Help us to offer you an investment in line with your profile!
                         Have you ever invested in cryptocurrencies?</h3>
@@ -872,10 +891,12 @@ export default function FurtherInformation(props) {
                                     </Grid>
                                 </div>
                             </div>
+                        </div>
                             : null
                     }
                     {
                         activeStep == 11 ?
+                        <div className="option"> 
                             <div className={classes.h3}>
                                 <h3 className={classes.h3}> <span>12:</span>How much do you want to convert?</h3>
                                 <p>
@@ -897,11 +918,12 @@ export default function FurtherInformation(props) {
                                     </Grid>
                                 </div>
                             </div>
+                        </div>
                             : null
                     }
                     {
                         activeStep === 12 ?
-                            <div>
+                        <div className="option"> 
                                 <div className={classes.h3}>
 
                                     <h3 className={classes.h3}> <span>13:</span>Where are the funds you intend to invest on Beeside?</h3>

@@ -15,8 +15,9 @@ export default function DashboardView() {
                                 <Grid>
 
                                     <Grid item md={12} >
-                                   
+                                    <div className="box">
                                         <Dashboard />
+                                    </div>
                                     </Grid>
                                  
                                 </Grid>

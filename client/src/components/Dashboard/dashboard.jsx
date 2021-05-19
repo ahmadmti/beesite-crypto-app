@@ -14,7 +14,6 @@ import FooterAbove from "./footerAbove";
 import LineChart from "./lineChart";
 import DashboardFooter from "./dashboardFooter";
 
-
 const useStyles = makeStyles((theme) => ({
     root: {
         width: '100%',
@@ -44,7 +43,8 @@ export default function Dashboard(props) {
         <React.Fragment>
             <div className="title">
                 <Container fixed maxWidth="md" className="container" disableGutters>
-                    <div className="dashboard_cover">
+            
+                    <div className="dashboard_cover ">
                         <Grid item md={12} sm={12} xs={12} >
                             <PieChart />
                         </Grid>
@@ -83,6 +83,7 @@ export default function Dashboard(props) {
 
                          
                             <Grid item md={12} sm={12} xs={12} >
+                                
                                 <DashboardFooter />
 
                                 
